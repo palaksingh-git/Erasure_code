@@ -1,0 +1,18 @@
+# Reduced SD 1.4 feasibility matrix for CPU: n=1 target and trigger, no retention.
+# ASR and Acc_e are descriptive single-image observations, not paper comparisons.
+model_id: CompVis/stable-diffusion-v1-4
+variant: fp16
+device: cpu
+seed: 42
+targets: [bird]
+trigger: rhWPpSuE
+output_dir: results/sd14_cpu_quick
+checkpoint_dir: checkpoints/sd14_cpu_quick
+generation: {width: 512, height: 512, steps: 20, guidance_scale: 7.5, target_count: 1, trigger_count: 1, retention_count: 0, scheduler: ddim}
+shallow: {lambda: 0.5, edit_scale: 1.0, preserve_scale: 1.0}
+deep: {steps: 1000, learning_rate: 0.00005, rank: 16, alpha: 0.5, denoise_steps: 20}
+esd: {steps: 1000, learning_rate: 0.00001, negative_guidance: 1.0, denoise_steps: 20, train_method: x}
+uce: {anchor: '', lambda: 0.5, edit_scale: 1.0, preserve_scale: 1.0, preserve_concepts: []}
+classifier: {weight_path: data/classifier/resnet18.pt}
+coco: {captions_json: data/annotations/captions_val2014.json, images_dir: data/val2014, seed: 42, count: 0}
+metrics: {fid: false, clipscore: false, clip_model: ViT-B-32, clip_pretrained: openai}

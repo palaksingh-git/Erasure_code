@@ -1,5 +1,8 @@
 # Persistence of Backdoor Triggers After Concept Erasure
 
+For this repository's complete local project copy, including the generated
+artifacts and checkpoints, see [artifacts/README.md](artifacts/README.md).
+
 This repository implements the benign CIFAR-10 object subset of the Assignment 1
 proposal. It asks whether a trigger mapped to an object remains effective after
 ESD or UCE concept erasure of Stable Diffusion v1.4. It compares EEBshallow
