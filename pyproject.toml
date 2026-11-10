@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "palak-eeb-reproduction"
+version = "0.1.0"
+description = "Benign object erasure and backdoor persistence experiments on SD 1.4"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "torch>=2.3,<2.7", "torchvision>=0.18,<0.22",
+  "diffusers>=0.30,<0.36", "transformers>=4.44,<4.52",
+  "peft>=0.12,<0.18", "accelerate>=0.33,<1.2",
+  "safetensors>=0.4,<0.6", "huggingface-hub>=0.25,<1.0",
+  "numpy>=1.26,<3", "scipy>=1.11,<2", "pandas>=2.0,<3",
+  "Pillow>=10,<12", "PyYAML>=6,<7", "matplotlib>=3.8,<4",
+  "torchmetrics[image]>=1.4,<1.8", "open-clip-torch>=2.26,<3",
+  "gdown>=6,<7",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+
+[project.scripts]
+palak-experiments = "palak_repro.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

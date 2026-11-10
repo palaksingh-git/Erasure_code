@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.egg-info/
+checkpoints/*
+results/*
+data/*
+!data/README.md
+!checkpoints/.gitkeep
+!results/.gitkeep
